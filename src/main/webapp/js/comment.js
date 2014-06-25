@@ -9,6 +9,7 @@ var getCommentData = function(id){
 	});
 };
 
+
 var getLoveNum = function(id){
 	$.ajax({
 		type : "get",
