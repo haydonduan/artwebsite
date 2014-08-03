@@ -58,24 +58,46 @@
 </td>
 </tr>
 </table>
-<input class="color">
+标题<input name="flashtitle" type="text">
+<input type="button" id="title-set-button" style="width:40px" value="更新">
+<br />
+标题颜色<input class="color">
 <input type="button" id="color-set-button" style="width:40px" value="更新">
+<br />
+FOOTER<input type="text" name="footertext">
+<input type="button" id="footer-set-button" style="width:40px" value="更新">
 </body>
 </html>
 <script src="${context}/backstagejs/isCanUpload.js"></script>
 <script>
 	 $("#color-set-button").click(function(){
-		$.ajax({
-			type:"POST",
-			url:$.ART.context + "/backstage/on/style/update_flash_color",
-			data: { color: $(".color").val() },
-			success:function(data){
-				if(data == 1){
-					alert("更新成功！");
-				}else{
-					alert("更新失败!");
-				}
-			}
-			})
+		 updateFlash($(".color").val(),1)
 		});
+		
+	 $("#title-set-button").click(function(){
+		 updateFlash($("input[name=flashtitle]").val(), 0);
+		});
+
+	 $("#footer-set-button").click(function(){
+		 updateFlash($("input[name=footertext]").val(), 2);
+		});
+		
+	// type 
+	// 0 为 title文字
+	// 1 为 title颜色
+	// 2 为footer文字
+		function updateFlash(text,type){
+			$.ajax({
+				type:"POST",
+				url:$.ART.context + "/backstage/on/style/update_flash_color",
+				data: { color: text, type: type },
+				success:function(data){
+					if(data == 1){
+						alert("更新成功！");
+					}else{
+						alert("更新失败!");
+					}
+				}
+			})
+		}
 </script>

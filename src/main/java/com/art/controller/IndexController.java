@@ -1,5 +1,7 @@
 package com.art.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.art.newsnotice.service.NewsNoticeService;
 import com.art.production.service.ProductionService;
+import com.art.style.domain.Style;
 import com.art.style.service.StyleService;
 
 @Controller
@@ -25,7 +28,19 @@ public class IndexController extends BaseController{
 	@RequestMapping("")
 	public ModelAndView index(){
 		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("color", getColorByType());
+		List<Style> styles = getColorByType();
+		for(Style style : styles){
+			if(style.getType() == 100){
+				mv.addObject("color", style.getImage());
+			}else if(style.getType() == 101){
+				mv.addObject("title", style.getImage());
+			}else{
+				mv.addObject("footer", style.getImage());
+			}
+		}
+		
+		
+		
 		return mv;
 	}
 	

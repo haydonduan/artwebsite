@@ -42,9 +42,9 @@ public class AdminStyleController{
 	
 	@ResponseBody
 	@RequestMapping(value = "update_flash_color",method=RequestMethod.POST)
-	public int updateFlashColor(@RequestParam("color") String color){
+	public int updateFlashColor(@RequestParam("color") String color, @RequestParam("type") int type){
 			try {
-				styleService.updateFlashFontColor("#" + color);
+				styleService.updateFlashFontColor(color,type);
 				return 1;
 			} catch (Exception e) {
 				e.printStackTrace();

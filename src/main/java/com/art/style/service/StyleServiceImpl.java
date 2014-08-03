@@ -55,13 +55,13 @@ public class StyleServiceImpl implements StyleService {
 
 
 	@Override
-	public Style findColorByType() {
+	public List<Style> findColorByType() {
 		return styleRepository.findColorByType();
 	}
 
 	@Transactional(propagation=Propagation.REQUIRED)
 	@Override
-	public void updateFlashFontColor(String color) {
-		styleRepository.updateFlashFontColor(color);
+	public void updateFlashFontColor(String color, int type) {
+		styleRepository.updateFlashFontColor(color, type);
 	}
 }

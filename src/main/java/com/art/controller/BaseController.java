@@ -47,6 +47,13 @@ public class BaseController {
 	
 	protected void getStyle() {
 		List<Style> styleList = styleService.getStyle();
+		List<Style> styles = getColorByType();
+		for(Style style : styles){
+			if(style.getType() == 102){
+				request.setAttribute("footer", style.getImage());
+			}
+		}
+		
 		for(Style s : styleList){
 			if(s.getType() == 1){
 				request.setAttribute("logo", s.getImage());
@@ -57,7 +64,7 @@ public class BaseController {
 		}
 	}
 	
-	public String getColorByType(){
-		return styleService.findColorByType().getImage();
+	public List<Style> getColorByType(){
+		return styleService.findColorByType();
 	}
 }

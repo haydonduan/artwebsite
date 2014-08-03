@@ -13,7 +13,7 @@ public interface StyleService {
 	
 	public void updateStyle(MultipartFile logo,MultipartFile banner,HttpSession session);
 	
-	public Style findColorByType();
+	public List<Style> findColorByType();
 	
-	public void updateFlashFontColor(String color);
+	public void updateFlashFontColor(String color, int type);
 }
