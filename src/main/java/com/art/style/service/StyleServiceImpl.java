@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.art.style.domain.Style;
@@ -23,6 +25,7 @@ public class StyleServiceImpl implements StyleService {
 	}
 
 	
+	@Transactional(propagation=Propagation.REQUIRED)
 	@Override
 	public void updateStyle(MultipartFile logo, MultipartFile banner,HttpSession session) {
 		List<Style> list = styleRepository.findAll();
@@ -48,5 +51,17 @@ public class StyleServiceImpl implements StyleService {
 			String fileName = UploadImage.upload(banner, path,2);
 			styleRepository.updateImage(oldBanner.getId(), Constant.UPLOAD_FILE + "/" + fileName);
 		}
+	}
+
+
+	@Override
+	public Style findColorByType() {
+		return styleRepository.findColorByType();
+	}
+
+	@Transactional(propagation=Propagation.REQUIRED)
+	@Override
+	public void updateFlashFontColor(String color) {
+		styleRepository.updateFlashFontColor(color);
 	}
 }

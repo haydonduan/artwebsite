@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,5 +38,17 @@ public class AdminStyleController{
 			MultipartFile banner = request1.getFile("banner");
 			styleService.updateStyle(logo, banner,request.getSession(true));
 			return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "update_flash_color",method=RequestMethod.POST)
+	public int updateFlashColor(@RequestParam("color") String color){
+			try {
+				styleService.updateFlashFontColor("#" + color);
+				return 1;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return 0;
+			}
 	}
 }

@@ -56,4 +56,8 @@ public class BaseController {
 			}
 		}
 	}
+	
+	public String getColorByType(){
+		return styleService.findColorByType().getImage();
+	}
 }

@@ -18,6 +18,15 @@ public class StyleRepositoryImpl implements StyleRepositoryCutstom {
 		query.setParameter("image", image).setParameter("id", id);
 		query.executeUpdate();
 	}
+
+	@Override
+	public void updateFlashFontColor(String color) {
+		String sql = "update t_style set image=:color where type=100";
+		SQLQuery query = em.createNativeQuery(sql).unwrap(
+				SQLQuery.class);
+		query.setParameter("color", color);
+		query.executeUpdate();
+	}
 	
 
 }

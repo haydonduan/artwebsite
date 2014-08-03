@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.art.newsnotice.service.NewsNoticeService;
 import com.art.production.service.ProductionService;
+import com.art.style.service.StyleService;
 
 @Controller
 public class IndexController extends BaseController{
@@ -15,6 +16,8 @@ public class IndexController extends BaseController{
 	@Resource
 	private ProductionService productionService;
 	
+	@Resource
+	private StyleService styleService;
 	
 	@Resource
 	private NewsNoticeService newsNoticeService;
@@ -22,6 +25,7 @@ public class IndexController extends BaseController{
 	@RequestMapping("")
 	public ModelAndView index(){
 		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("color", getColorByType());
 		return mv;
 	}
 	

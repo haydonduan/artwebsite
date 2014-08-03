@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${context}/skin/css/base.css">
 <title>后台管理系统</title>
 <script type="text/javascript" src="${context}/js/jqueryForm.js"></script>
+<script type="text/javascript" src="${context}/backstagejs/jscolor/jscolor.js"></script>
 </head>
 <body leftmargin="8" topmargin="8">
 
@@ -19,7 +20,7 @@
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np"  value='更改前台图标'/>
+    <span class="coolbg np">更改前台图标</span> 
  </td>
  </tr>
 </table>
@@ -42,30 +43,39 @@
 </tr>
 </table>
 </form>
+<br /><br />
+<!-- FLASH -->
+<table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#D1DDAA" align="center">
+<tr>
+ <td height="26">
+  <table width="98%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="center">
+    <span class="coolbg np">更改FLASH上部文字颜色</span>
+ </td>
+ </tr>
+</table>
+</td>
+</tr>
+</table>
+<input class="color">
+<input type="button" id="color-set-button" style="width:40px" value="更新">
 </body>
 </html>
 <script src="${context}/backstagejs/isCanUpload.js"></script>
 <script>
-	/* $("input[name=submit]").click(function(){
-		$('#form').ajaxForm();
+	 $("#color-set-button").click(function(){
 		$.ajax({
 			type:"POST",
-			url:$.ART.context + "/backstage/on/style/update",
+			url:$.ART.context + "/backstage/on/style/update_flash_color",
+			data: { color: $(".color").val() },
 			success:function(data){
-				$('#form').ajaxSubmit({
-					error:function(){
-						alert("更新失败!");
-					},
-					success:function(data){
-						if(data == 1){
-							alert("更新成功！");
-						}else{
-							alert("更新失败!");
-						}
-					}
-				});
-				//window.location.href="${context}/forum/on/tomypage";
+				if(data == 1){
+					alert("更新成功！");
+				}else{
+					alert("更新失败!");
+				}
 			}
+			})
 		});
-	}); */
 </script>

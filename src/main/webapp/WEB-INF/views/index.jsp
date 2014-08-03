@@ -14,7 +14,8 @@
 </head>
 <body>
 	<div id="flashContent">
-			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="1003" height="649" id="default" align="middle">
+	<div style="position:absolute;top:18px;left:670px;font-size: 24px;font-weight: bolder;color:${color}">积雨宅</div>
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="1003" height="649" id="default" align="middle" style="margin-top:7px">
 				<param name="movie" value="default.swf" />
 				<param name="quality" value="high" />
 				<param name="bgcolor" value="#213f46" />
@@ -47,6 +48,7 @@
 				</object>
 				<!--<![endif]-->
 			</object>
+			<div style="position:absolute;top:647px;left:540px;font-size: 14px;font-weight: bolder">个人书画网版权所有 备案编号：川CP备********号</div>
 		</div>
 </body>
 </html>
