@@ -8,7 +8,7 @@
 <%@include file="../util/links.jsp"%>
 <script src="${context}/js/knockout-2.3.0.js"></script>
 <script src="${context}/js/comment.js"></script>
-<title>画家简介</title>
+<title>作品：${production.title}</title>
 </head>
 <body>
 	<div id="topWrap">

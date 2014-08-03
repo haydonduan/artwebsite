@@ -70,7 +70,7 @@
 							</div>							
 							<div class="left bor_r ad_1" style="width:379px; height:200px; margin-top:0px;">
 								<div class="tit01">
-									<h2 style="padding-top:0px;">站内公告&nbsp;&nbsp;&nbsp;&nbsp;<span id="sub_t36" style="font-size:12px; cursor:pointer;" onclick="window.location.href='${context}/newsnotice/more/0/1'">更多&raquo;</span></h2>
+									<h2 style="padding-top:0px;">站内公告&nbsp;&nbsp;&nbsp;&nbsp;<span id="sub_t36" style="font-size:12px; cursor:pointer;" onclick="window.open='${context}/newsnotice/more/0/1'">更多&raquo;</span></h2>
 								</div>
 								<div class="con01" style="overflow: hidden; position: relative; padding: 0px; ">
 									<div class="jscroll-c" style="top: 0px; z-index: 9999; zoom: 1; position: relative; padding: 0px; ">

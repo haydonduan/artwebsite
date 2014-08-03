@@ -22,7 +22,7 @@ function movec()
 	var wwww=setInterval(uu,2000);
 
 	function reg(i){rq[i].onclick=function(){oli[dnow].className=rq[dnow].className="";dnow=i;oli[dnow].className=rq[dnow].className="show";mv();}}
-	function mv(){clearInterval(extime);clearInterval(wwww);extime=setInterval(bc,15);wwww=setInterval(uu,8000);}
+	function mv(){clearInterval(extime);clearInterval(wwww);extime=setInterval(bc,15);wwww=setInterval(uu,5000);}
 	function bc()
 	{
 		var ns=((dnow*oliw+olf)-o["scrollLeft"]);
@@ -41,7 +41,7 @@ function movec()
 		mv();
 	}
 	o.onmouseover=function(){clearInterval(extime);clearInterval(wwww);}
-	o.onmouseout=function(){extime=setInterval(bc,15);wwww=setInterval(uu,8000);}
+	o.onmouseout=function(){extime=setInterval(bc,15);wwww=setInterval(uu,5000);}
 }
 	
 	
