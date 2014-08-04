@@ -70,7 +70,7 @@
 							</div>							
 							<div class="left bor_r ad_1" style="width:379px; height:200px; margin-top:0px;">
 								<div class="tit01">
-									<h2 style="padding-top:0px;">站内公告&nbsp;&nbsp;&nbsp;&nbsp;<span id="sub_t36" style="font-size:12px; cursor:pointer;" onclick="window.open='${context}/newsnotice/more/0/1'">更多&raquo;</span></h2>
+									<h2 style="padding-top:0px;">站内公告&nbsp;&nbsp;&nbsp;&nbsp;<span id="sub_t36" style="font-size:12px; cursor:pointer;" onclick="window.open('${context}/newsnotice/more/0/1')">更多&raquo;</span></h2>
 								</div>
 								<div class="con01" style="overflow: hidden; position: relative; padding: 0px; ">
 									<div class="jscroll-c" style="top: 0px; z-index: 9999; zoom: 1; position: relative; padding: 0px; ">
@@ -78,7 +78,7 @@
 										<div class="con01_txt">
 											<ul style="margin-top:15px;">
 												<c:forEach items="${noticeList}" var="notice">
-													<li id="sub_t8" style="cursor:pointer" onclick="window.location.href='${context}/newsnotice/${notice.id}'">${notice.title} (<fmt:formatDate value="${notice.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>)</li>
+													<li id="sub_t8" style="cursor:pointer" onclick="window.open('${context}/newsnotice/${notice.id}')">${notice.title} (<fmt:formatDate value="${notice.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>)</li>
 												</c:forEach>
 											</ul>
 										</div>
@@ -93,13 +93,13 @@
 						</div>
 						<div class="right" style="width:450px;">
 							<div class="tit01">
-								<h2 style="padding-left:10px;">新闻动态&nbsp;&nbsp;&nbsp;&nbsp;<span id="sub_t38" style="font-size:12px; cursor:pointer;" onclick="window.location.href='${context}/newsnotice/more/0/0'">更多&raquo;</span></h2>
+								<h2 style="padding-left:10px;">新闻动态&nbsp;&nbsp;&nbsp;&nbsp;<span id="sub_t38" style="font-size:12px; cursor:pointer;" onclick="window.open('${context}/newsnotice/more/0/0')">更多&raquo;</span></h2>
 							</div>
 							<div class="con01" style="overflow: hidden; height:500px; position: relative; padding: 0px; "><div class="jscroll-c" style="top: 0px; z-index: 9999; zoom: 1; position: relative; padding-right: 7px; "><div style="height:0px;overflow:hidden"></div>
 								<div class="con01_txt" style=" padding-left:10px; margin-top:-10px;">
 	　　                       				 	<ul>
 										<c:forEach items="${newsList}" var="news">
-											<li id="sub_t8" style="cursor:pointer"  onclick="window.location.href='${context}/newsnotice/${news.id}'">${news.title} (<fmt:formatDate value="${news.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>)</li>
+											<li id="sub_t8" style="cursor:pointer"  onclick="window.open('${context}/newsnotice/${news.id}')">${news.title} (<fmt:formatDate value="${news.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>)</li>
 										</c:forEach>
 									</ul>
 								</div>

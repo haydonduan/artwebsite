@@ -7,7 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%@include file="../util/links.jsp"%>
 <script src="${context}/js/newspage.js"></script>
-<title>联系方式</title>
+<title>
+
+</title>
 </head>
 <body>
 	<div id="topWrap">
@@ -31,9 +33,15 @@
 							<div class="tit01">
 								<c:if test="${type == 0}">
 									<h2>新闻动态</h2>
+									<script>
+									$("title").html("新闻动态")
+									</script>
 								</c:if>
 								<c:if test="${type == 1}">
 									<h2>公告</h2>
+									<script>
+									$("title").html("站内公告")
+									</script>
 								</c:if>
 							</div>
 							<div class="con01" style="overflow: hidden; position: relative; padding: 0px; "><div class="jscroll-c" style="top: 0px; z-index: 9999; zoom: 1; position: relative; padding-right: 7px; "><div style="height:0px;overflow:hidden"></div>
