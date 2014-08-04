@@ -39,8 +39,8 @@
 				<li class='<c:if test="${type == 'zuopinzhongxin'}">selected</c:if>'>
 					<span href="#" onmouseover="mopen('m1')" onmouseout="mclosetime()">作品中心</span>
 						<div style="z-index:9999999" id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
-							<a href="javascript:void(0)" id="sub_t7" onclick="window.location.href='${context}/production/1/0'">山水</a>
-							<a href="javascript:void(0)" id="sub_t3"  onclick="window.location.href='${context}/production/2/0'">骏马</a>
+							<a href="javascript:void(0)" id="sub_t7" onclick="window.open('${context}/production/1/0')">山水</a>
+							<a href="javascript:void(0)" id="sub_t3"  onclick="window.open('${context}/production/2/0')">骏马</a>
 						</div>
 				</li>
 				<li id="sub_t4" class='<c:if test="${type == 'huajiayushehui'}">selected</c:if>'  onclick="window.location.href='${context}/paintersocial/index'">画家与社会</li>

@@ -40,7 +40,7 @@
 										<img src="${context}/${production.image}" width="860"/>
 										<br/>
 										<div class="pic-btnarea">
-											<a class="btn-dimgray" style="cursor:pointer"><em>喜欢</em>(<i data-bind="text:loveNum"></i>)</a>					
+											<a class="btn-dimgray" style="cursor:pointer"><em><img src="${context}/img/good.png" style="width:15px;height:15px">喜欢</em>(<i data-bind="text:loveNum"></i>)</a>					
 										</div>
 										<i class="clear"></i>
 										<div class="cmt">

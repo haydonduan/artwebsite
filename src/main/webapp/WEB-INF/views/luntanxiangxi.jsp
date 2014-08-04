@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%@include file="../util/links.jsp"%>
 <script src="${context}/js/articleComment.js"></script>
-<title>画家简介</title>
+<title>帖子-${forum.title}</title>
 </head>
 <body>
 	<div id="topWrap">
