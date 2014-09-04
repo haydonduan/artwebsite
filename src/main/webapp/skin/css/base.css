@@ -287,3 +287,8 @@ border:1px solid #ffffff;
 	background:#F9FFE6;
 	padding:6px;
 }
+
+.must-input{
+	margin-left: 10px;
+	color:red
+}

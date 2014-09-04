@@ -13,7 +13,7 @@
 </head>
 <body leftmargin="8" topmargin="8">
 <!--  内容列表   -->
-<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
+<table width="50%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 	<tr bgcolor="#E7E7E7">
 		<td height="24" colspan="10">
 				&nbsp;添加作品&nbsp;
@@ -26,7 +26,7 @@
 			标题
 		</td>
 		<td>
-			<input type="text" name="title" size="30">
+			<input type="text" name="title" size="30"><span class="must-input">*<span>
 		</td>
 	</tr>
 	<tr bgcolor="#EEF4EA" style="text-align:center">
@@ -37,7 +37,7 @@
 			<select name="type">
 				<option value="1">山水</option>
 				<option value="2">骏马</option>
-			</select>
+			</select><span class="must-input">*<span>
 		</td>
 	</tr>
 	<tr bgcolor="#EEF4EA" style="text-align:center">
@@ -45,7 +45,7 @@
 			创建时间
 		</td>
 		<td>
-			<input type="text" name="time" size="30" id="datepicker">
+			<input type="text" name="time" size="30" id="datepicker"><span class="must-input">*<span>
 		</td>
 	</tr>
 	<tr bgcolor="#EEF4EA" style="text-align:center">
@@ -53,7 +53,7 @@
 			图像
 		</td>
 		<td>
-			<input type="file" name="image" onchange="filesize(this)"><span style="color:red">建议最合适的宽度890px </span>
+			<input type="file" name="image" onchange="filesize(this)"><span style="color:red">建议最合适的宽度890px </span><span class="must-input">*<span>
 		</td>
 	</tr>
 	<tr bgcolor="#EEF4EA" style="text-align:center">

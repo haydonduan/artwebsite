@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%@include file="../util/links.jsp"%>
-<title>联系方式</title>
+<title>个人中心</title>
 </head>
 <body>
 	<div id="topWrap">

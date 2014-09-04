@@ -55,12 +55,16 @@
 		</tr>
 		<tr bgcolor="#EEF4EA">
 			<td>
-				图片
+				新闻链接图片
 			</td>
 			<td>
-				<input type="file" name="image"  onchange="filesize(this)"><span style="color:red">建议上传266px(宽)*168px(高)的图片</span>
+				<input type="file" name="image"  onchange="filesize(this)">
+					<span style="color:red">建议上传266px(宽)*168px(高)的图片，一篇新闻仅有一张</span>
 			</td>
 		</tr>
+	</c:if>
+	<c:if test="${type != 'news'}">
+		<input type="hidden" name="type" value="2">
 	</c:if>
 	<tr bgcolor="#EEF4EA">
 		<td>
@@ -146,9 +150,6 @@ function filesize(ele) {
 			}
 		}
 
-
-
-
 		$("input[name=text]").val(html);
 
 		$('#form').ajaxSubmit({
@@ -157,33 +158,13 @@ function filesize(ele) {
 			},
 			success:function(data){
 				alert("添加成功！");
-				window.location.href="${context}/backstage/on/newsnotice/0/0";
+				<c:if test="${type == 'news'}">
+					window.location.href="${context}/backstage/on/newsnotice/0/0";
+				</c:if>
+				<c:if test="${type == 'notice'}">
+					window.location.href="${context}/backstage/on/newsnotice/0/1";
+				</c:if>
 			}
 		});
-
-		
-		/* var datas = {
-			title:title,
-			type:selectV,
-			text:html,
-			id: ""
-		};
-		$.ajax({
-			type:"POST",
-			url:$.ART.context + "/backstage/on/newsnotice/save",
-			data:datas,
-			success:function(data){
-				if(data == 1){
-					alert("添加成功");
-					if("${type}" == "news"){
-						window.location.href="${context}/backstage/on/newsnotice/0/0";
-					}else{
-						window.location.href="${context}/backstage/on/newsnotice/0/1";
-					}
-				}else{
-					alert("添加失败");
-				}
-			}
-		}); */
 	});
 </script>

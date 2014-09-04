@@ -58,6 +58,9 @@
 			</td>
 		</tr>
 	</c:if>
+	<c:if test="${type != 'news'}">
+		<input type="hidden" name="type" value="2">
+	</c:if>
 	<tr bgcolor="#EEF4EA">
 			<td>
 				图片
@@ -161,7 +164,12 @@ function filesize(ele) {
 			},
 			success:function(data){
 				alert("更新成功！");
-				window.location.href="${context}/backstage/on/newsnotice/0/0";
+				<c:if test="${type == 'news'}">
+					window.location.href="${context}/backstage/on/newsnotice/0/0";
+				</c:if>
+				<c:if test="${type == 'notice'}">
+					window.location.href="${context}/backstage/on/newsnotice/0/1";
+				</c:if>
 			}
 		});
 	});

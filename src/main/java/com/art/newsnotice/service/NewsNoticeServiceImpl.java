@@ -71,6 +71,7 @@ public class NewsNoticeServiceImpl implements NewsNoticeService {
 			newsNoticeRepository.save(nn);
 			return 1;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return 0;
 		}
 	}

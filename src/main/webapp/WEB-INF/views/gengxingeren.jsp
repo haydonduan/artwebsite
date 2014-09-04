@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%@include file="../util/links.jsp"%>
 <script type="text/javascript" src="${context}/js/jqueryForm.js"></script>
-<title>联系方式</title>
+<title>更新个人信息</title>
 </head>
 <body>
 	<div id="topWrap">
