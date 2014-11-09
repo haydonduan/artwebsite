@@ -32,6 +32,10 @@ public class Constant {
 	public static final int BACKSTAGE_PRO_PAGE_SIZE = 15;
 	//没有回复评论的作品页
 	public static final int COMMENT_INDEX_PAGE_SIZE = 15;
+	
+	//用户管理页
+	public static final int MANAGE_USER_PAGE_SIZE = 15;
+	
 	//没有回复的评论页
 	public static final int COMMENT_NO_REPLY_PAGE_SIZE = 15;
 	

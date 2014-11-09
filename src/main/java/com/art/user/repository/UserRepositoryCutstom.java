@@ -1,5 +1,7 @@
 package com.art.user.repository;
 
+import java.util.List;
+
 import com.art.user.domain.User;
 import com.art.user.dto.UserDto;
 
@@ -18,4 +20,8 @@ public interface UserRepositoryCutstom {
 	public UserDto getUserByAdminName(String name);
 	
 	public void updateAdminUser(Long id,String name,String password);
+
+	public int getUsersCount();
+	
+	public List<User> getUsersByPage(int currentPage);
 }

@@ -105,6 +105,21 @@
         </dd>
       </dl>      
       
+ <!-- 用户管理 -->      
+      <dl class='bitem'>
+        <dt onClick='showHide("items2_14")'><b>用户管理</b></dt>
+        <dd style='display:block' class='sitem' id='items2_14'>
+          <ul class='sitemu'>
+            <li>
+            	<div class='items'>
+                <div class='fllct'><a href='${context}/backstage/on/users/0' target='main'>用户管理</a></div>
+                <div class='flrct'> <a href='${context}/backstage/on/users/0' target='main'><img src='${context}/skin/images/frame/gtk-sadd.png'/></a> </div>
+              </div>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+      
       <!-- Item 2 Strat -->
       <dl class='bitem'>
         <dt onClick='showHide("items2_1")'><b>系统帮助</b></dt>

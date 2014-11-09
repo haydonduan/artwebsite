@@ -1,6 +1,7 @@
 package com.art.user.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +14,11 @@ public class User implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8641544064637808949L;
+	private static final long serialVersionUID = -771290883222732898L;
+	/**
+	 * 
+	 */
+	
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -30,6 +35,18 @@ public class User implements Serializable {
 	private String email;
 	@Column(name="is_admin")
 	private byte isAdmin;
+	
+	@Column(name="created_time")
+	private Date createdTime;
+	
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
 	public byte getIsAdmin() {
 		return isAdmin;
 	}

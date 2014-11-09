@@ -1,5 +1,7 @@
 package com.art.user.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -8,16 +10,22 @@ import org.hibernate.transform.Transformers;
 import org.hibernate.type.ByteType;
 import org.hibernate.type.LongType;
 import org.hibernate.type.StringType;
+import org.hibernate.type.TimestampType;
 
 import com.art.user.domain.User;
 import com.art.user.dto.UserDto;
+import com.util.Constant;
 
 public class UserRepositoryImpl implements UserRepositoryCutstom {
 
 	@PersistenceContext
 	private EntityManager em;
 	
+	public static final int IS_PAINTER = 1;
+	
 	private static final String GET_USER_BY_ISPAINTER = "select id,name,detail,image,telephone,email,address from t_user where is_painter=:isPainter";
+	
+	private static final String GET_USER_BY_IS_NOT_PAINTER = "select id,name,detail,image,telephone,email,address,created_time as createdTime from t_user where is_painter <> :isPainter";
 	
 	private static final String GET_USER_BY_NAME = "select id,name,password,image from t_user where name=:name";
 	
@@ -35,7 +43,7 @@ public class UserRepositoryImpl implements UserRepositoryCutstom {
 		.addScalar("image", StringType.INSTANCE)
 		.addScalar("telephone", StringType.INSTANCE)
 		.addScalar("email", StringType.INSTANCE)
-		.setParameter("isPainter", 1).setResultTransformer(Transformers.aliasToBean(User.class));
+		.setParameter("isPainter", IS_PAINTER).setResultTransformer(Transformers.aliasToBean(User.class));
 		return (User)query.uniqueResult();
 	}
 
@@ -71,6 +79,38 @@ public class UserRepositoryImpl implements UserRepositoryCutstom {
 		.setParameter("name", name)
 		.setParameter("password", password)
 		.executeUpdate();
+	}
+
+	@Override
+	public int getUsersCount() {
+		SQLQuery query = em.createNativeQuery(
+				"select count(id) from users where is_painter=:isPainter"
+				).unwrap(
+				SQLQuery.class);
+		return Integer.parseInt(
+				query.setParameter("isPainter", IS_PAINTER)
+				     .uniqueResult().toString()
+				);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getUsersByPage(int currentPage) {
+		SQLQuery query = em.createNativeQuery(GET_USER_BY_IS_NOT_PAINTER).unwrap(
+				SQLQuery.class);
+		query.addScalar("name", StringType.INSTANCE)
+		.addScalar("id", LongType.INSTANCE)
+		.addScalar("detail", StringType.INSTANCE)
+		.addScalar("address", StringType.INSTANCE)
+		.addScalar("image", StringType.INSTANCE)
+		.addScalar("createdTime", TimestampType.INSTANCE)
+		.addScalar("telephone", StringType.INSTANCE)
+		.addScalar("email", StringType.INSTANCE)
+		.setParameter("isPainter", IS_PAINTER)
+		.setMaxResults(Constant.MANAGE_USER_PAGE_SIZE)
+		.setFirstResult(currentPage)
+		.setResultTransformer(Transformers.aliasToBean(User.class));
+		return query.list();
 	}
 
 }

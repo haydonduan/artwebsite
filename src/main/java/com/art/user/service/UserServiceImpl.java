@@ -1,5 +1,8 @@
 package com.art.user.service;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +33,7 @@ public class UserServiceImpl implements UserService {
 		UserDto existsUser = userRepository.getUserByName(user.getName());
 		if(existsUser == null){
 			user.setImage("img/nophoto.gif");
+			user.setCreatedTime(new Date());
 			userRepository.save(user);
 			return 1;
 		}else{
@@ -168,6 +172,32 @@ public class UserServiceImpl implements UserService {
 			return 2;
 		}
 		return 3;
+	}
+
+	@Override
+	public List<User> getUserListByPage(int currentPage) {
+		return userRepository.getUsersByPage(currentPage);
+	}
+
+	@Override
+	public int getUserCount() {
+		return userRepository.getUsersCount();
+	}
+
+	@Override
+	public User getUserById(Long id) {
+		return userRepository.findOne(id);
+	}
+
+	@Override
+	public int deleteUserById(Long id) {
+		try {
+			userRepository.delete(id);
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
 	}
 
 }

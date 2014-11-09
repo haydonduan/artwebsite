@@ -1,5 +1,7 @@
 package com.art.user.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -30,4 +32,12 @@ public interface UserService {
 	public int updateUser(MultipartFile file,UploadUserDto userDto,HttpSession session);
 	
 	public int validateUser(UploadUserDto dto,HttpSession session);
+	
+	public int getUserCount();
+	
+	public List<User> getUserListByPage(int currentPage);
+	
+	public User getUserById(Long id);
+	
+	public int deleteUserById(Long id);
 }
